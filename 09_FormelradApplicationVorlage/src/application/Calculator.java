@@ -48,8 +48,14 @@ public class Calculator {
 		 * welche Methode unten aufgerufen werden muss.
 		 */
 	}
-	
-	/* Hier die Methoden mit den Formlen hinzuf�gen
-	 */
+	private void calculatePower(double tension, double current, double ressistence) {
+		if (ressistence == 0) {
+			power = tension * current;
+		} else if (tension == 0) {
+			power = ressistence * (current * current);
+		} else {
+			power = (tension * tension) / ressistence;
+		}
+	}
 	
 }
