@@ -79,36 +79,35 @@ public class Main extends Application {
 			btnBerechnen.relocate(100, 445);
 			btnBerechnen.setText("Berechnen");
 			root.getChildren().add(btnBerechnen);
-			
+
 			btnBerechnen.setOnAction(e -> {
 				double power = 0.0;
 				double tension = 0.0;
 				double current = 0.0;
 				double resistence = 0.0;
-				int counter = 0;
 				if (!txLeistung.getText().isEmpty()) {
 					power = Double.parseDouble(txLeistung.getText());
-					counter++;
+					txLeistung.setStyle("-fx-text-fill: black;");
+				} else {
+					txLeistung.setStyle("-fx-text-fill: red;");
 				}
 				if (!txSpannung.getText().isEmpty()) {
 					tension = Double.parseDouble(txSpannung.getText());
-					counter++;
+					txSpannung.setStyle("-fx-text-fill: black;");
+				} else {
+					txSpannung.setStyle("-fx-text-fill: red;");
 				}
 				if (!txStrom.getText().isEmpty()) {
 					current = Double.parseDouble(txStrom.getText());
-					counter++;
+					txStrom.setStyle("-fx-text-fill: black;");
+				} else {
+					txStrom.setStyle("-fx-text-fill: red;");
 				}
 				if (!txWiderstand.getText().isEmpty()) {
 					resistence = Double.parseDouble(txWiderstand.getText());
-					counter++;
-				}
-				if (counter != 2) {
-					Alert alert = new Alert(Alert.AlertType.INFORMATION);
-					alert.setTitle("Formelrad");
-					alert.setHeaderText("Wrong amount of values");
-					alert.setContentText("Please enter two (2) values");
-
-					alert.showAndWait();
+					txWiderstand.setStyle("-fx-text-fill: black;");
+				} else {
+					txWiderstand.setStyle("-fx-text-fill: red;");
 				}
 				Calculator myCalculator = new Calculator(
 						power, tension, current, resistence);
@@ -117,7 +116,7 @@ public class Main extends Application {
 				myCalculator.calculate();
 				System.out.print("Nachher: ");
 				System.out.println(myCalculator.toString());
-					
+
 				txLeistung.setText(Double.toString(myCalculator.getLeistung()));
 				txSpannung.setText(Double.toString(myCalculator.getSpannung()));
 				txStrom.setText(Double.toString(myCalculator.getStrom()));
