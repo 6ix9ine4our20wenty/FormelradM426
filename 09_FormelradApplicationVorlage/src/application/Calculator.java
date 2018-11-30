@@ -36,12 +36,13 @@ public class Calculator {
 	}
 
 	@Override
-	public String toString() {
-		return "Calculator [leistung=" + current +
-				", spannung=" + tension +
-				", strom=" + power +
-				", widerstand="	+ resistance + "]";
-	}
+    //Feature 9
+    public String toString() {
+        return "Calculator [leistung=" + current +
+                ", spannung=" + tension +
+                ", strom=" + power +
+                ", widerstand=" + resistance + "]";
+    }
 
 	public void calculate() {
 		while (resistance == 0 || current == 0 || tension == 0 || power == 0) {

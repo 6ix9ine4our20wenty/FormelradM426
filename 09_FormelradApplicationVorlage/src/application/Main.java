@@ -3,6 +3,7 @@ package application;
 import java.io.FileInputStream;
 
 import javafx.application.Application;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -78,23 +79,35 @@ public class Main extends Application {
 			btnBerechnen.relocate(100, 445);
 			btnBerechnen.setText("Berechnen");
 			root.getChildren().add(btnBerechnen);
-			
+
 			btnBerechnen.setOnAction(e -> {
 				double power = 0.0;
 				double tension = 0.0;
 				double current = 0.0;
 				double resistence = 0.0;
-				if(txLeistung.getText().isEmpty()==false) {
+				if (!txLeistung.getText().isEmpty()) {
 					power = Double.parseDouble(txLeistung.getText());
+					txLeistung.setStyle("-fx-text-fill: black;");
+				} else {
+					txLeistung.setStyle("-fx-text-fill: red;");
 				}
-				if(txSpannung.getText().isEmpty()==false) {
+				if (!txSpannung.getText().isEmpty()) {
 					tension = Double.parseDouble(txSpannung.getText());
+					txSpannung.setStyle("-fx-text-fill: black;");
+				} else {
+					txSpannung.setStyle("-fx-text-fill: red;");
 				}
-				if(txStrom.getText().isEmpty()==false) {
+				if (!txStrom.getText().isEmpty()) {
 					current = Double.parseDouble(txStrom.getText());
+					txStrom.setStyle("-fx-text-fill: black;");
+				} else {
+					txStrom.setStyle("-fx-text-fill: red;");
 				}
-				if(txWiderstand.getText().isEmpty()==false) {
+				if (!txWiderstand.getText().isEmpty()) {
 					resistence = Double.parseDouble(txWiderstand.getText());
+					txWiderstand.setStyle("-fx-text-fill: black;");
+				} else {
+					txWiderstand.setStyle("-fx-text-fill: red;");
 				}
 				Calculator myCalculator = new Calculator(
 						power, tension, current, resistence);
@@ -103,7 +116,7 @@ public class Main extends Application {
 				myCalculator.calculate();
 				System.out.print("Nachher: ");
 				System.out.println(myCalculator.toString());
-					
+
 				txLeistung.setText(Double.toString(myCalculator.getLeistung()));
 				txSpannung.setText(Double.toString(myCalculator.getSpannung()));
 				txStrom.setText(Double.toString(myCalculator.getStrom()));
