@@ -3,6 +3,7 @@ package application;
 import java.io.FileInputStream;
 
 import javafx.application.Application;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -84,17 +85,30 @@ public class Main extends Application {
 				double tension = 0.0;
 				double current = 0.0;
 				double resistence = 0.0;
-				if(txLeistung.getText().isEmpty()==false) {
+				int counter = 0;
+				if (!txLeistung.getText().isEmpty()) {
 					power = Double.parseDouble(txLeistung.getText());
+					counter++;
 				}
-				if(txSpannung.getText().isEmpty()==false) {
+				if (!txSpannung.getText().isEmpty()) {
 					tension = Double.parseDouble(txSpannung.getText());
+					counter++;
 				}
-				if(txStrom.getText().isEmpty()==false) {
+				if (!txStrom.getText().isEmpty()) {
 					current = Double.parseDouble(txStrom.getText());
+					counter++;
 				}
-				if(txWiderstand.getText().isEmpty()==false) {
+				if (!txWiderstand.getText().isEmpty()) {
 					resistence = Double.parseDouble(txWiderstand.getText());
+					counter++;
+				}
+				if (counter != 2) {
+					Alert alert = new Alert(Alert.AlertType.INFORMATION);
+					alert.setTitle("Formelrad");
+					alert.setHeaderText("Wrong amount of values");
+					alert.setContentText("Please enter two (2) values");
+
+					alert.showAndWait();
 				}
 				Calculator myCalculator = new Calculator(
 						power, tension, current, resistence);
