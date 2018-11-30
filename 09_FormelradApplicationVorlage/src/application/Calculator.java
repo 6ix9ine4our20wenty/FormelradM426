@@ -75,4 +75,14 @@ public class Calculator {
 			current = Math.sqrt(power * ressistence);
 		}
 	}
+	private void calculateRessistence(double tension, double power, double current) {
+		if (current == 0) {
+			resistance = (tension * tension) / power;
+		} else if (tension == 0) {
+			resistance = power / (current * current);
+		} else {
+			resistance = current / tension;
+		}
+
+	}
 }
