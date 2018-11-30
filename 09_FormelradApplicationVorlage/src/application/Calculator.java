@@ -66,5 +66,13 @@ public class Calculator {
 			tension = Math.sqrt(power / ressistence);
 		}
 	}
-	
+	private void calculateCurrent(double tension, double power, double ressistence) {
+		if (power == 0) {
+			current = tension * ressistence;
+		} else if (ressistence == 0) {
+			current = power / tension;
+		} else {
+			current = Math.sqrt(power * ressistence);
+		}
+	}
 }
