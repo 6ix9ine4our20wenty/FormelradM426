@@ -44,10 +44,19 @@ public class Calculator {
 	}
 
 	public void calculate() {
-		/* Hier auf Grund der vorhanden Werte entscheiden
-		 * welche Methode unten aufgerufen werden muss.
-		 */
+		while (resistance == 0 || current == 0 || tension == 0 || power == 0) {
+			if (resistance == 0) {
+				calculateRessistence(tension, current, power);
+			} else if (current == 0) {
+				calculateCurrent(tension, power, resistance);
+			} else if (tension == 0) {
+				calculateTension(power, current, resistance);
+			} else if (power == 0) {
+				calculatePower(tension, current, resistance);
+			}
+		}
 	}
+	
 	private void calculatePower(double tension, double current, double ressistence) {
 		if (ressistence == 0) {
 			power = tension * current;
