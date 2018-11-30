@@ -6,41 +6,41 @@ package application;
  * @version 13.09.2018
  */
 public class Calculator {
-	private double leistung;
-	private double spannung;
-	private double strom;
-	private double widerstand;
+	private double current;
+	private double tension;
+	private double power;
+	private double resistance;
 	
-	public Calculator(double leistung, double spannung, double strom, double widerstand) {
+	public Calculator(double current, double tension, double power, double resistance) {
 		super();
-		this.leistung = leistung;
-		this.spannung = spannung;
-		this.strom = strom;
-		this.widerstand = widerstand;
+		this.current = current;
+		this.tension = tension;
+		this.power = power;
+		this.resistance = resistance;
 	}
 	
 	public double getLeistung() {
-		return leistung;
+		return current;
 	}
 	
 	public double getSpannung() {
-		return spannung;
+		return tension;
 	}
 
 	public double getStrom() {
-		return strom;
+		return power;
 	}
 
 	public double getWiderstand() {
-		return widerstand;
+		return resistance;
 	}
 
 	@Override
 	public String toString() {
-		return "Calculator [leistung=" + leistung +
-				", spannung=" + spannung +
-				", strom=" + strom +
-				", widerstand="	+ widerstand + "]";
+		return "Calculator [leistung=" + current +
+				", spannung=" + tension +
+				", strom=" + power +
+				", widerstand="	+ resistance + "]";
 	}
 
 	public void calculate() {
